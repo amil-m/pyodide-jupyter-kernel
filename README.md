@@ -39,22 +39,22 @@ display(df)
 **Examples:**
 ```python
 # Mount file from workspace root
-mount('data.csv')
+await mount('data.csv')
 
 # Mount from subdirectory
-mount('data/myfile.txt') 
+await mount('data/myfile.txt') 
 
 # Mount to specific path in Pyodide
-mount('data/input.csv', '/data/input.csv') 
+await mount('data/input.csv', '/data/input.csv') 
 
 # Mount and use with various libraries
-mount('config.json')
+await mount('config.json')
 import json
 with open('/config.json') as f:
     config = json.load(f)
 
 # Mount image files
-mount('/workspace/images/photo.jpg')
+await mount('/workspace/images/photo.jpg')
 from PIL import Image
 img = Image.open('/photo.jpg')
 display(img)

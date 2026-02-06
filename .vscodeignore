@@ -1,0 +1,13 @@
+.vscode/**
+.vscode-test-web/**
+src/**
+webview/**
+.gitignore
+webpack.config.js
+tsconfig.json
+node_modules/**
+*.vsix
+out/**
+.DS_Store
+*.md
+!README.md

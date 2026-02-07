@@ -3,7 +3,7 @@
   "displayName": "Pyodide Jupyter Kernel",
   "description": "Run Jupyter notebooks with Python in the browser using Pyodide",
   "version": "0.1.0",
-  "publisher": "Amil Mohanan",
+  "publisher": "AmilMohanan",
   "repository": {
     "type": "git",
     "url": "https://github.com/amil-m/pyodide-jupyter-kernel"

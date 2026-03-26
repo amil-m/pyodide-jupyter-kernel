@@ -90,6 +90,14 @@ npm install -g @vscode/test-web
 npm run test-web
 ```
 
+### Building
+
+Compile packages with visx
+
+```bash
+vsce package
+```
+
 ## Credits
 
 Built with:

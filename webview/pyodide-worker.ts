@@ -145,28 +145,30 @@ def capture_matplotlib():
         except:
             pass
 
-        fig = plt.gcf()
+        captured = False
+        for fig_num in plt.get_fignums():
+            fig = plt.figure(fig_num)
+            if fig.get_axes():
+                buf = io.BytesIO()
+                fig.savefig(buf, format='png', bbox_inches='tight', dpi=100)
+                buf.seek(0)
+                png_data = buf.getvalue()
+                buf.close()
 
-        if fig.get_axes():
-            buf = io.BytesIO()
-            fig.savefig(buf, format='png', bbox_inches='tight', dpi=100)
-            buf.seek(0)
-            png_data = buf.getvalue()
-            buf.close()
+                b64_data = base64.b64encode(png_data).decode('ascii')
 
-            b64_data = base64.b64encode(png_data).decode('ascii')
+                _display_outputs.append({
+                    'output_type': 'display_data',
+                    'data': {
+                        'image/png': b64_data,
+                        'text/plain': '<Figure>'
+                    },
+                    'metadata': {}
+                })
+                captured = True
 
-            _display_outputs.append({
-                'output_type': 'display_data',
-                'data': {
-                    'image/png': b64_data,
-                    'text/plain': '<Figure>'
-                },
-                'metadata': {}
-            })
-
-            plt.close(fig)
-            return True
+        plt.close('all')
+        return captured
     except ImportError:
         pass
     except Exception as e:

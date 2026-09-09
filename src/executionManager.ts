@@ -57,7 +57,7 @@ export class ExecutionManager {
 
       this.worker.postMessage({
         type: "initialize",
-        cdnUrl: "https://cdn.jsdelivr.net/pyodide/v0.29.3/full/pyodide.js",
+        cdnUrl: "https://cdn.jsdelivr.net/pyodide/v314.0.6/full/pyodide.js",
       });
 
       this.updateStatus("initializing");
